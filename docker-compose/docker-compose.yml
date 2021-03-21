@@ -12,8 +12,8 @@ services :
   server :
     build: .
     volumes :
-      - /usr/src/app/node_modules
-      - ./:/usr/src/app
+      - /docker-api/node_modules
+      - ./:/docker-api
     ports:
       - "8080:4000"
   pma:
