@@ -1,6 +1,6 @@
 #Use and existing docker image as a base
 FROM node:alpine
-WORKDIR '/docker-node-api'
+WORKDIR '/docker-api'
 COPY package.json ./
 RUN npm install
 COPY . .
