@@ -1,16 +1,12 @@
-const express = require('express')
-const app = express()
-const client = redis.createClient({
-   host: 'db',
-   port: 6379
-})
-client.set('visits', 0)
-app.get('/', async (req, res) => {
-  client.get('visits', (err, visits) => {
-    res.send('Number of visits is ' + visits)
-    client.set('visits', parseInt(visits) + 1)
-  })
-})
-app.listen(8081, () => {
-  console.log('Listening on port 8081');
-})
+const express = require('express');
+
+const PORT = 8080;
+const HOST = '0.0.0.0';
+
+// App
+const app = express();
+app.get('/', (req, res) => {
+  res.send('Hello World');
+  });
+
+  app.listen(PORT, HOST);
