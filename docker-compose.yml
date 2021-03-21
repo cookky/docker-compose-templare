@@ -3,7 +3,7 @@ services :
   server :
     build: .
     volumes :
-      - /app/node_modules
-      - ./:/app
+      - /docker-node-api/docker-compose/node_modules
+      - ./:/docker-node-api/docker-compose
     ports:
       - "8080:8080"

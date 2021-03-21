@@ -1,6 +1,6 @@
 #Use and existing docker image as a base
 FROM node:alpine
-WORKDIR '/app'
+WORKDIR '/docker-node-api/docker-compose'
 COPY package.json ./
 RUN npm install
 COPY . .
