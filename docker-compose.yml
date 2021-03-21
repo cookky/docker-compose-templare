@@ -1,9 +1,26 @@
 version : '3'
 services :
+  db:
+    build: ./mariadb
+    restart: always
+    volumes:
+      - ./sharevolume/mysql:/var/lib/mysql
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=1234
   server :
     build: .
     volumes :
-      - /docker-node-api/docker-compose/node_modules
-      - ./:/docker-node-api/docker-compose
+      - /usr/src/app/node_modules
+      - ./:/usr/src/app
     ports:
-      - "8080:8080"
+      - "8080:4000"
+  pma:
+    image: phpmyadmin/phpmyadmin
+    container_name: lemp_phpmyadmin
+    restart: always
+    ports:
+      - 8000:80
+    links:
+      - db
