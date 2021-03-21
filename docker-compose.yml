@@ -1,6 +1,7 @@
 version : '3'
 services :
-  db :
+  # db :
+    # image : 'redis'
   server :
     build: .
     volumes :
